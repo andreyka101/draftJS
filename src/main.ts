@@ -1,4 +1,4 @@
-import '/style.css'
+import './style.css'
 
 
 // *LINK - 1 - [[Prototype]] =======================================================
