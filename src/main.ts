@@ -22,6 +22,7 @@ import './style.css'
 
 // *LINK - 2 - F.prototype =======================================================
 
+//STUB - ошибка хз какая
 
 let animal = {
   eats: true
@@ -35,4 +36,27 @@ Rabbit.prototype = animal;
 
 let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
 
-alert( rabbit.eats ); // true
+console.log( rabbit.eats ); // true
+console.log( rabbit.name ); // White Rabbit
+
+// '''''''''''''''''''''''''''''''''''''
+
+// function Rabbit() {}
+//  по умолчанию:
+//  Rabbit.prototype = { constructor: Rabbit }
+
+// let rabbit = new Rabbit(); // наследует от {constructor: Rabbit}
+
+// alert(rabbit.constructor == Rabbit); // true (свойство получено из прототипа)
+
+// '''''''''''''''''''''''''''''''''''''
+
+// function Rabbit(name) {
+//   this.name = name;
+//   alert(name);
+// }
+
+// let rabbit = new Rabbit("White Rabbit");
+
+// let rabbit2 = new rabbit.constructor("Black Rabbit");
+
