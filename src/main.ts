@@ -28,9 +28,9 @@ let animal = {
   eats: true
 };
 
-function Rabbit(name:string ) {
-  return this.name = name;
-}
+const Rabbit = (function(this:any,name:string ) {
+  this.name = name;
+}) as any
 
 Rabbit.prototype = animal;
 
