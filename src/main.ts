@@ -69,37 +69,22 @@ import './style.css'
 // ?############# Описание объектов, методов JSDoc ##############
 // https://jsdoc.app/index.html
 
-/**
- * @method
- * Тут можем создать описание функции
- *
- * @param {string} this - так описываются параметры. Т.к. это метод, опишем только this, который передавать не нужно
- */
-String.prototype.reverse = function (this: string) {
-  return this.split('').reverse().join('')
-}
-console.log('sffgdfgdfg'.reverse())
+// /**
+//  * @method
+//  * Тут можем создать описание функции
+//  *
+//  * @param {string} this - так описываются параметры. Т.к. это метод, опишем только this, который передавать не нужно
+//  */
+// String.prototype.reverse = function (this: string) {
+//   return this.split('').reverse().join('')
+// }
+// console.log('sffgdfgdfg'.reverse())
 
-/**
- * Объект с числом и методом
- */
 
-const myObj = {
-  /**
-   * @argument
-   * Просто число
-   */
-  a:10,
-  /**
-   * @method
-   * Увеличивает a на 1
-   */
-  count() {
-    this.a++
-  }
-}
+String.prototype.s = function(this:string) {
+  alert(this);
+};
 
-myObj.count()
-myObj.a
-console.log(myObj)
+"BOOM!".s(); // BOOM!
+
 
