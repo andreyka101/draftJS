@@ -107,3 +107,13 @@ let u=56
 console.log(u.n(4))
 
 
+// Дата и время
+// 1
+// let d = new Date(2012,2,20,3,12)
+// console.log(d)
+// 2
+let d = new Date()
+if (d.getUTCDay()==1)
+console.log(d)
+
+
