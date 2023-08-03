@@ -69,22 +69,41 @@ import './style.css'
 // ?############# Описание объектов, методов JSDoc ##############
 // https://jsdoc.app/index.html
 
-// /**
-//  * @method
-//  * Тут можем создать описание функции
-//  *
-//  * @param {string} this - так описываются параметры. Т.к. это метод, опишем только this, который передавать не нужно
-//  */
-// String.prototype.reverse = function (this: string) {
-//   return this.split('').reverse().join('')
-// }
-// console.log('sffgdfgdfg'.reverse())
+declare global {
+  interface String {
+    /**
+     * @method sss
+     * Тут можем создать описание функции
+     *
+     * @param {string} lang? - так описываются параметры. Т.к. это метод, опишем только this, который передавать не нужно
+     */
+    sss(lang?:string):string
+  }
+  interface Number {
+    /**
+     * @method n
+     * умножает на 2
+     *
+     * @param {number} l2? - или умножает на заданное число не обязательно
+     */
+    n(l2?:number):number
+  }
+}
+
+String.prototype.sss = function(this:string,lang:string='') {
+  return this+"sss"+lang;
+};
+let tt = "ttege"
+console.log(tt.sss())
+console.log(tt.sss('jikdfghjk'))
 
 
-String.prototype.s = function(this:string) {
-  alert(this);
+
+Number.prototype.n = function(this:number,l2:number=2) {
+  return this*l2;
 };
 
-"BOOM!".s(); // BOOM!
+let u=56
+console.log(u.n(4))
 
 
