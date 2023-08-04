@@ -111,9 +111,10 @@ console.log(u.n(4))
 // 1
 // let d = new Date(2012,2,20,3,12)
 // console.log(d)
+
 // 2
-let d = new Date()
-if (d.getUTCDay()==1)
-console.log(d)
+let d = new Date(2014, 0, 3)
+let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
+console.log(daysArrey[d.getDay()-1])
 
 
