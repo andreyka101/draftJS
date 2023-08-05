@@ -113,8 +113,21 @@ console.log(u.n(4))
 // console.log(d)
 
 // 2
-let d = new Date(2014, 0, 3)
-let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
-console.log(daysArrey[d.getDay()-1])
+// let d = new Date(2014, 0, 3)
+// function getWeekDay (n:any){
+  //   let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
+  //   return daysArrey[n.getDay()]
+  // }
+  // let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
+  // console.log(getWeekDay(d))
+  
+  // 4
+  let d = new Date(2015, 0, 2)
+  let datt=d.getDate()
+  d.setDate(datt+2)
+  console.log(d)
+
+
+
 
 
