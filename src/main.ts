@@ -122,10 +122,28 @@ console.log(u.n(4))
   // console.log(getWeekDay(d))
   
   // 4
-  let d = new Date(2015, 0, 2)
-  let datt=d.getDate()
-  d.setDate(datt+2)
-  console.log(d)
+  // let d = new Date(2015, 0, 2)
+  // function getDateAgo(n:any,num:number){ 
+  //   let datt=n.getDate()
+  //   n.setDate(datt+num)
+  //   return n
+  // }
+  //   console.log(getDateAgo(d,365))
+
+  // 5
+  // function getLastDayOfMonth(year:number,date:number){
+  //   let i = 5
+  //   let d = new Date(year, date, i)
+  //   let r =0
+  //   while (d.getDate() != 1){
+  //     r = d.getDate()+1
+  //     d.setDate(d.getDate()+1)
+  //   }
+  //   return r-1
+  // }
+  // console.log(getLastDayOfMonth(2023,8))
+
+  
 
 
 
