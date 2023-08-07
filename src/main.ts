@@ -144,21 +144,41 @@ console.log(u.n(4))
     // console.log(getLastDayOfMonth(2023,8))
     
     // 8
-function formatDate(n:any){
+    let d = new Date()
+    function formatDate(n:any){
+  let d = new Date()
   let s = n.getSeconds()
   let m = n.getMinutes()
   let h = n.getHours()
-  return h
+  if (s==d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
+    return "прямо сейчас"
+  }
+  if (s<d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
+    return `${d.getSeconds()-s} сек. назад`
+  }
+  if (m<d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
+    return `${d.getMinutes()-m} мин. назад`
+  }
+  if (h<d.getHours() && n.getDate()==d.getDate()){
+    return `${d.getHours()-h} ч. назад`
+  }
+  else{
+    const futureDate = new Date();
+    futureDate.setTime(d.getTime()+(d.getTime()-n.getTime()))
+    return `выл в ${futureDate}`
+    
+  }
 }
 
-    let d = new Date()
     console.log(d)
     // @ts-ignore
-    console.log(formatDate(new Date(d-30 * 1000)))
+    console.log(formatDate(new Date(d-60000*60*24*35)))
     // @ts-ignore
-    console.log(formatDate(new Date(d)))
+    console.log(new Date(d-60000*60*24*35))
     // @ts-ignore
-    console.log(formatDate(new Date(d-5 * 60 * 1000)))
+    // console.log(formatDate(new Date(d-30 * 1000)))
+    // @ts-ignore
+    // console.log(formatDate(new Date(d-5 * 60 * 1000)))
 
     
     
