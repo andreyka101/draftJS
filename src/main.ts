@@ -144,6 +144,21 @@ console.log(u.n(4))
     // console.log(getLastDayOfMonth(2023,8))
     
     // 8
+function formatDate(n:any){
+  let s = n.getSeconds()
+  let m = n.getMinutes()
+  let h = n.getHours()
+  return h
+}
+
+    let d = new Date()
+    console.log(d)
+    // @ts-ignore
+    console.log(formatDate(new Date(d-30 * 1000)))
+    // @ts-ignore
+    console.log(formatDate(new Date(d)))
+    // @ts-ignore
+    console.log(formatDate(new Date(d-5 * 60 * 1000)))
 
     
     
