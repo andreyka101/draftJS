@@ -163,18 +163,27 @@ console.log(u.n(4))
     return `${d.getHours()-h} ч. назад`
   }
   else{
-    const futureDate = new Date();
-    futureDate.setTime(d.getTime()+(d.getTime()-n.getTime()))
-    return `выл в ${futureDate}`
+    if (n.getDate()<10 && n.getMonth()<10){
+      return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
+    }
+    if (n.getDate()<10 && n.getMonth()>=10){
+      return `выл в 0${n.getDate()}.${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
+    }
+    if (n.getDate()>=10 && n.getMonth()<10){
+      return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
+    }
+    else{
+      return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
+    }
     
   }
 }
 
     console.log(d)
     // @ts-ignore
-    console.log(formatDate(new Date(d-60000*60*24*35)))
+    console.log(formatDate(new Date(d-61000*60*24*5)))
     // @ts-ignore
-    console.log(new Date(d-60000*60*24*35))
+    console.log(new Date(d-61000*60*24*5))
     // @ts-ignore
     // console.log(formatDate(new Date(d-30 * 1000)))
     // @ts-ignore
