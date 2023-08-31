@@ -132,25 +132,25 @@ console.log(u.n(4))
     
     // 5
     // function getLastDayOfMonth(year:number,date:number){
-  //   let i = 5
-  //   let d = new Date(year, date, i)
-  //   let r =0
-  //   while (d.getDate() != 1){
-    //     r = d.getDate()+1
-    //     d.setDate(d.getDate()+1)
-    //   }
-    //   return r-1
-    // }
-    // console.log(getLastDayOfMonth(2023,8))
-    
-    // 8
-    let d = new Date()
-    function formatDate(n:any){
-  let d = new Date()
-  let s = n.getSeconds()
-  let m = n.getMinutes()
-  let h = n.getHours()
-  if (s==d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
+      //   let i = 5
+      //   let d = new Date(year, date, i)
+      //   let r =0
+      //   while (d.getDate() != 1){
+        //     r = d.getDate()+1
+        //     d.setDate(d.getDate()+1)
+        //   }
+        //   return r-1
+        // }
+        // console.log(getLastDayOfMonth(2023,8))
+        
+        // 8
+        let d = new Date()
+        function formatDate(n:any){
+          let d = new Date()
+          let s = n.getSeconds()
+          let m = n.getMinutes()
+          let h = n.getHours()
+          if (s==d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
     return "прямо сейчас"
   }
   if (s<d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
@@ -179,18 +179,24 @@ console.log(u.n(4))
   }
 }
 
-    console.log(d)
-    // @ts-ignore
-    console.log(formatDate(new Date(d-61000*60*24*5)))
-    // @ts-ignore
-    console.log(new Date(d-61000*60*24*5))
-    // @ts-ignore
-    // console.log(formatDate(new Date(d-30 * 1000)))
-    // @ts-ignore
-    // console.log(formatDate(new Date(d-5 * 60 * 1000)))
+// console.log(d)
+// @ts-ignore
+// console.log(formatDate(new Date(d-61000*60*24*5)))
+// @ts-ignore
+// console.log(new Date(d-61000*60*24*5))
+// @ts-ignore
+// console.log(formatDate(new Date(d-30 * 1000)))
+// @ts-ignore
+// console.log(formatDate(new Date(d-5 * 60 * 1000)))
 
-    
-    
-    
-    
-    
+// *LINK - Создайте список =======================================================
+
+// 1 Запрашивайте содержимое пункта у пользователя с помощью prompt.
+// 2 Создавайте элемент <li> и добавляйте его к <ul>.
+// 3 Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
+
+console.log(prompt())
+
+
+
+
