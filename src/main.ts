@@ -200,14 +200,24 @@ console.log(u.n(4))
 // Если пользователь вводит HTML-теги, они должны обрабатываться как текст.
 
 let LiArrey = [] as any
-let t  ={
-   weet(){
-    console.log("88888")
-   }
-  }
-LiArrey.__proto__ = t
-// console.log(prompt())
-LiArrey.weet
+
+
+// *LINK - Создайте список =======================================================
 
 
 
+
+
+
+
+//=================================================================
+
+// let LiArrey = [] as any
+// let t  ={
+//    weet(){
+//     console.log("88888")
+//    }
+//   }
+// LiArrey.__proto__ = t
+// // console.log(prompt())
+// LiArrey.weet
