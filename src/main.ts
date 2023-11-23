@@ -221,3 +221,7 @@ let LiArrey = [] as any
 // LiArrey.__proto__ = t
 // // console.log(prompt())
 // LiArrey.weet
+
+
+
+// https://learn.javascript.ru/module
