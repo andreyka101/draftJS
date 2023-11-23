@@ -257,22 +257,65 @@ sayHi('John');
 // 📁 user.js
 // export default class User { // просто добавьте "default"
 //   constructor(name) {
-//     this.name = name;
-//   }
-// }
+  //     this.name = name;
+  //   }
+  // }
+  
+  // Заметим, в файле может быть не более одного export default.
+  // …И потом импортируем без фигурных скобок:
+  
+  /// 📁 main.js
+  // import User from './user.js'; // не {User}, просто User
+  // new User('John');
+  
+  // Импорты без фигурных скобок выглядят красивее. Обычная ошибка начинающих: забывать про фигурные скобки. Запомним: фигурные скобки необходимы в случае именованных экспортов, для export default они не нужны.
+  
+  
+  import Calculator from './calc.ts'
+  let cal = new Calculator(3,7)
+  cal.numC = 10
+  console.log(cal.numC);
+  cal.sumABC()
+  
 
-// Заметим, в файле может быть не более одного export default.
-// …И потом импортируем без фигурных скобок:
-
-/// 📁 main.js
-// import User from './user.js'; // не {User}, просто User
-// new User('John');
-
-// Импорты без фигурных скобок выглядят красивее. Обычная ошибка начинающих: забывать про фигурные скобки. Запомним: фигурные скобки необходимы в случае именованных экспортов, для export default они не нужны.
+  // *LINK - animation
 
 
-import Calculator from './calc.ts'
-let cal = new Calculator(3,7)
-cal.numC = 10
-console.log(cal.numC);
-cal.sumABC()
+  const animationBox = document.querySelector('.box_for_animation') as any
+  const animationButton = document.querySelector('.button_for_animation') as any
+  
+  let animationStart:any
+  let requestId:any
+
+  function startAnimation() {
+    requestId = window.requestAnimationFrame(animate)
+   
+    animationButton.style.opacity = 0
+   }  
+
+   animationButton.addEventListener('click', startAnimation, { once: true })
+
+   function animate(timestamp:any) {
+    if (!animationStart) {
+      animationStart = timestamp
+    }
+   
+    const progress = timestamp - animationStart
+    
+   
+    animationBox.style.transform = `translateX(${progress / 5}px)`
+   
+    const x = animationBox.getBoundingClientRect().x + 100
+   
+
+    // 6px - scrollbar width
+    if (x <= window.innerWidth / 2) {
+      window.requestAnimationFrame(animate)
+    } else {
+      window.cancelAnimationFrame(requestId)
+    }
+   }
+
+   function quad(timeFraction:any) {
+    return Math.pow(timeFraction, 2)
+  }
