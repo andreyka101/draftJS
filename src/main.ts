@@ -269,3 +269,10 @@ sayHi('John');
 // new User('John');
 
 // Импорты без фигурных скобок выглядят красивее. Обычная ошибка начинающих: забывать про фигурные скобки. Запомним: фигурные скобки необходимы в случае именованных экспортов, для export default они не нужны.
+
+
+import Calculator from './calc.ts'
+let cal = new Calculator(3,7)
+cal.numC = 10
+console.log(cal.numC);
+cal.sumABC()
