@@ -77,7 +77,7 @@ declare global {
      *
      * @param {string} lang? - так описываются параметры. Т.к. это метод, опишем только this, который передавать не нужно
      */
-    sss(lang?:string):string
+    sss(lang?: string): string
   }
   interface Number {
     /**
@@ -86,12 +86,12 @@ declare global {
      *
      * @param {number} l2? - или умножает на заданное число не обязательно
      */
-    n(l2?:number):number
+    n(l2?: number): number
   }
 }
 
-String.prototype.sss = function(this:string,lang:string='') {
-  return this+"sss"+lang;
+String.prototype.sss = function (this: string, lang: string = '') {
+  return this + "sss" + lang;
 };
 let tt = "ttege"
 console.log(tt.sss())
@@ -99,11 +99,11 @@ console.log(tt.sss('jikdfghjk'))
 
 
 
-Number.prototype.n = function(this:number,l2:number=2) {
-  return this*l2;
+Number.prototype.n = function (this: number, l2: number = 2) {
+  return this * l2;
 };
 
-let u=56
+let u = 56
 console.log(u.n(4))
 
 
@@ -115,67 +115,67 @@ console.log(u.n(4))
 // 2
 // let d = new Date(2014, 0, 3)
 // function getWeekDay (n:any){
-  //   let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
-  //   return daysArrey[n.getDay()]
-  // }
-  // let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
-  // console.log(getWeekDay(d))
-  
-  // 4
-  // let d = new Date(2015, 0, 2)
-  // function getDateAgo(n:any,num:number){ 
-    //   let datt=n.getDate()
-    //   n.setDate(datt+num)
-    //   return n
-    // }
-    //   console.log(getDateAgo(d,365))
-    
-    // 5
-    // function getLastDayOfMonth(year:number,date:number){
-      //   let i = 5
-      //   let d = new Date(year, date, i)
-      //   let r =0
-      //   while (d.getDate() != 1){
-        //     r = d.getDate()+1
-        //     d.setDate(d.getDate()+1)
-        //   }
-        //   return r-1
-        // }
-        // console.log(getLastDayOfMonth(2023,8))
-        
-        // 8
-        let d = new Date()
-        function formatDate(n:any){
-          let d = new Date()
-          let s = n.getSeconds()
-          let m = n.getMinutes()
-          let h = n.getHours()
-          if (s==d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
+//   let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
+//   return daysArrey[n.getDay()]
+// }
+// let daysArrey=["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"]
+// console.log(getWeekDay(d))
+
+// 4
+// let d = new Date(2015, 0, 2)
+// function getDateAgo(n:any,num:number){ 
+//   let datt=n.getDate()
+//   n.setDate(datt+num)
+//   return n
+// }
+//   console.log(getDateAgo(d,365))
+
+// 5
+// function getLastDayOfMonth(year:number,date:number){
+//   let i = 5
+//   let d = new Date(year, date, i)
+//   let r =0
+//   while (d.getDate() != 1){
+//     r = d.getDate()+1
+//     d.setDate(d.getDate()+1)
+//   }
+//   return r-1
+// }
+// console.log(getLastDayOfMonth(2023,8))
+
+// 8
+let d = new Date()
+function formatDate(n: any) {
+  let d = new Date()
+  let s = n.getSeconds()
+  let m = n.getMinutes()
+  let h = n.getHours()
+  if (s == d.getSeconds() && m == d.getMinutes() && h == d.getHours() && n.getDate() == d.getDate()) {
     return "прямо сейчас"
   }
-  if (s<d.getSeconds() && m==d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
-    return `${d.getSeconds()-s} сек. назад`
+  if (s < d.getSeconds() && m == d.getMinutes() && h == d.getHours() && n.getDate() == d.getDate()) {
+    return `${d.getSeconds() - s} сек. назад`
   }
-  if (m<d.getMinutes() && h==d.getHours() && n.getDate()==d.getDate()){
-    return `${d.getMinutes()-m} мин. назад`
+  if (m < d.getMinutes() && h == d.getHours() && n.getDate() == d.getDate()) {
+    return `${d.getMinutes() - m} мин. назад`
   }
-  if (h<d.getHours() && n.getDate()==d.getDate()){
-    return `${d.getHours()-h} ч. назад`
+  if (h < d.getHours() && n.getDate() == d.getDate()) {
+    return `${d.getHours() - h} ч. назад`
   }
-  else{
-    if (n.getDate()<10 && n.getMonth()<10){
+  else {
+    if (n.getDate() < 10 && n.getMonth() < 10) {
       return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
     }
-    if (n.getDate()<10 && n.getMonth()>=10){
+    if (n.getDate() < 10 && n.getMonth() >= 10) {
       return `выл в 0${n.getDate()}.${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
     }
-    if (n.getDate()>=10 && n.getMonth()<10){
+    if (n.getDate() >= 10 && n.getMonth() < 10) {
       return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
     }
-    else{
+    else {
       return `выл в 0${n.getDate()}.0${n.getMonth()}.${n.getFullYear()}  ${h}:${m}`
     }
-    
+
   }
 }
 
@@ -227,7 +227,7 @@ let LiArrey = [] as any
 // *LINK - Модули
 // https://learn.javascript.ru/module
 
-import {sayHi} from './mod';
+import { sayHi } from './mod';
 console.log(sayHi);
 sayHi('John');
 
@@ -257,65 +257,101 @@ sayHi('John');
 // 📁 user.js
 // export default class User { // просто добавьте "default"
 //   constructor(name) {
-  //     this.name = name;
-  //   }
-  // }
-  
-  // Заметим, в файле может быть не более одного export default.
-  // …И потом импортируем без фигурных скобок:
-  
-  /// 📁 main.js
-  // import User from './user.js'; // не {User}, просто User
-  // new User('John');
-  
-  // Импорты без фигурных скобок выглядят красивее. Обычная ошибка начинающих: забывать про фигурные скобки. Запомним: фигурные скобки необходимы в случае именованных экспортов, для export default они не нужны.
-  
-  
-  import Calculator from './calc.ts'
-  let cal = new Calculator(3,7)
-  cal.numC = 10
-  console.log(cal.numC);
-  cal.sumABC()
-  
+//     this.name = name;
+//   }
+// }
 
-  // *LINK - animation
+// Заметим, в файле может быть не более одного export default.
+// …И потом импортируем без фигурных скобок:
+
+/// 📁 main.js
+// import User from './user.js'; // не {User}, просто User
+// new User('John');
+
+// Импорты без фигурных скобок выглядят красивее. Обычная ошибка начинающих: забывать про фигурные скобки. Запомним: фигурные скобки необходимы в случае именованных экспортов, для export default они не нужны.
 
 
-  const animationBox = document.querySelector('.box_for_animation') as any
-  const animationButton = document.querySelector('.button_for_animation') as any
-  
-  let animationStart:any
-  let requestId:any
+import Calculator from './calc.ts'
+let cal = new Calculator(3, 7)
+cal.numC = 10
+console.log(cal.numC);
+cal.sumABC()
 
-  function startAnimation() {
-    requestId = window.requestAnimationFrame(animate)
-   
-    animationButton.style.opacity = 0
-   }  
 
-   animationButton.addEventListener('click', startAnimation, { once: true })
+// *LINK - animation
 
-   function animate(timestamp:any) {
-    if (!animationStart) {
-      animationStart = timestamp
+
+const animationBox = document.querySelector('.box_for_animation') as any
+const animationButton = document.querySelector('.button_for_animation') as any
+
+let animationStart: any
+let requestId: any
+
+function startAnimation() {
+  // requestId = window.requestAnimationFrame(animate)
+  animate({timing:elastic,duration:3000,draw(progress:number) {
+    const width = document.documentElement.clientWidth - 120
+    animationBox.style.transform = `translateX(${progress*width}px)`
+  }})
+  animationButton.style.opacity = 0
+}
+
+function elastic(timeFraction) {
+  const x = 1.5
+  return Math.pow(2, 10 * (timeFraction - 1)) * Math.cos(20 * Math.PI * x / 3 * timeFraction)
+}
+
+animationButton.addEventListener('click', startAnimation, { once: true })
+
+// function animate(timestamp: any) {
+//   if (!animationStart) {
+//     animationStart = timestamp
+//   }
+
+//   const progress = timestamp - animationStart
+//   let timeFraction = (timestamp - animationStart) / duration;
+
+
+//   animationBox.style.transform = `translateX(${progress / 5}px)`
+
+//   const x = animationBox.getBoundingClientRect().x + 100
+
+
+//   // 6px - scrollbar width
+//   if (x <= window.innerWidth / 2) {
+//     window.requestAnimationFrame(animate)
+//   } else {
+//     window.cancelAnimationFrame(requestId)
+//   }
+// }
+
+type AnimationObj = {
+  timing: Function,
+  draw: Function,
+  duration: number
+}
+
+function animate({timing, draw, duration}:AnimationObj) {
+
+  let start = performance.now()
+
+  requestAnimationFrame(function animate(time) {
+    // timeFraction изменяется от 0 до 1
+    let timeFraction = (time - start) / duration;
+    if (timeFraction > 1) timeFraction = 1;
+
+    // вычисление текущего состояния анимации
+    let progress = timing(timeFraction);
+
+    draw(progress); // отрисовать её
+
+    if (timeFraction < 1) {
+      requestAnimationFrame(animate);
     }
-   
-    const progress = timestamp - animationStart
-    
-   
-    animationBox.style.transform = `translateX(${progress / 5}px)`
-   
-    const x = animationBox.getBoundingClientRect().x + 100
-   
 
-    // 6px - scrollbar width
-    if (x <= window.innerWidth / 2) {
-      window.requestAnimationFrame(animate)
-    } else {
-      window.cancelAnimationFrame(requestId)
-    }
-   }
+  });
+}
 
-   function quad(timeFraction:any) {
-    return Math.pow(timeFraction, 2)
-  }
+function quad(timeFraction: any) {
+  return Math.pow(timeFraction, 2)
+}
