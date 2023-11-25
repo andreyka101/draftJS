@@ -284,46 +284,37 @@ cal.sumABC()
 const animationBox = document.querySelector('.box_for_animation') as any
 const animationButton = document.querySelector('.button_for_animation') as any
 
-let animationStart: any
-let requestId: any
 
 function startAnimation() {
   // requestId = window.requestAnimationFrame(animate)
-  animate({timing:elastic,duration:3000,draw(progress:number) {
+  animate({timing:makeEaseOut(bounce),duration:1000,draw(progress:number) {
     const width = document.documentElement.clientWidth - 120
     animationBox.style.transform = `translateX(${progress*width}px)`
   }})
   animationButton.style.opacity = 0
 }
-
-function elastic(timeFraction) {
+// выбор анимации 
+function elastic(timeFraction:number) {
   const x = 1.5
   return Math.pow(2, 10 * (timeFraction - 1)) * Math.cos(20 * Math.PI * x / 3 * timeFraction)
 }
 
+function bounce(timeFraction:number) {
+  for (let a = 0, b = 1; 1; a += b, b /= 2) {
+    if (timeFraction >= (7 - 4 * a) / 11) {
+      return -Math.pow((11 - 6 * a - 11 * timeFraction) / 4, 2) + Math.pow(b, 2)
+    }
+  }
+}
+
+function makeEaseOut(timing:any) {
+  return function(timeFraction:number) {
+    return 1 - timing(1 - timeFraction);
+  }
+}
+// выбор анимации ^^^^^^^^^
+
 animationButton.addEventListener('click', startAnimation, { once: true })
-
-// function animate(timestamp: any) {
-//   if (!animationStart) {
-//     animationStart = timestamp
-//   }
-
-//   const progress = timestamp - animationStart
-//   let timeFraction = (timestamp - animationStart) / duration;
-
-
-//   animationBox.style.transform = `translateX(${progress / 5}px)`
-
-//   const x = animationBox.getBoundingClientRect().x + 100
-
-
-//   // 6px - scrollbar width
-//   if (x <= window.innerWidth / 2) {
-//     window.requestAnimationFrame(animate)
-//   } else {
-//     window.cancelAnimationFrame(requestId)
-//   }
-// }
 
 type AnimationObj = {
   timing: Function,
@@ -350,8 +341,4 @@ function animate({timing, draw, duration}:AnimationObj) {
     }
 
   });
-}
-
-function quad(timeFraction: any) {
-  return Math.pow(timeFraction, 2)
 }
